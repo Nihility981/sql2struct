@@ -14,7 +14,7 @@ v0.1.1
 1. 下载扩展源码
 
 ```shell
-git clone https://github.com/idoubi/sql2struct.git
+git clone https://github.com/Nihility981/sql2struct
 ```
 
 2. 安装扩展
