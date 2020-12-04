@@ -2,6 +2,13 @@
 
 > SQL2Struct是一款对golang开发者友好的chrome插件，根据在mysql中创建数据表的sql语句，自动生成golang中的struct，在golang开发者使用诸如gorm之类的框架时，可以很好的把mysql中的数据表与orm的结构体关联起来。
 
+## 更新说明
+
+v0.1.1
+
+- 新增了对备注信息的输出
+- 修改form默认为false
+
 ## 使用说明
 
 1. 下载扩展源码
@@ -15,7 +22,7 @@ git clone https://github.com/idoubi/sql2struct.git
 Chrome浏览器地址栏输入`chrome://extensions/`进入扩展程序管理中心，
 点击“加载已解压的扩展程序”，通过源码进行安装。
 
-![](http://blogcdn.idoustudio.com/sql2struct1.png)
+![安装扩展](https://i.loli.net/2020/12/04/BrTWnAj4i9mYCXa.png)
 
 3. 在mysql中获取生成数据表的sql语句
 
@@ -27,7 +34,7 @@ show create table system_user\G;
 
 5. 复制右侧生成的struct，粘贴至golang代码中即可
 
-![](http://blogcdn.idoustudio.com/sql2struct2.png)
+![效果截图](https://i.loli.net/2020/12/04/6rkPKzfbWG3RaNj.png)
 
 ## 配置说明
 
