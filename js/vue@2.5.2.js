@@ -574,7 +574,7 @@ var formatComponentName = (noop);
     if (config.warnHandler) {
       config.warnHandler.call(null, msg, vm, trace);
     } else if (hasConsole && (!config.silent)) {
-      console.error(("[Vue warn]: " + msg + trace));
+      // console.error(("[Vue warn]: " + msg + trace));
     }
   };
 
@@ -1690,7 +1690,7 @@ function logError (err, vm, info) {
   }
   /* istanbul ignore else */
   if (inBrowser && typeof console !== 'undefined') {
-    console.error(err);
+    // console.error(err);
   } else {
     throw err
   }
