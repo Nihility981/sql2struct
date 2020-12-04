@@ -59,14 +59,24 @@ new Vue({
                 this.structContent = ''
                 return
             }
-            var res = [];
+            var res1 = [];
             val.replace(/(\`\w+\`)\s+([\w\(\)]+)(?:\s+.+?COMMENT\s+'(.+?)')?/g, function ($0, $1, $2, $3) {
-                res.push($1 + " " + $2 + ($3 ? " //" + $3 : ""));
+                var t = $3 + ""
+                $3 = t.replace(/\s+/g, ">")
+                if ($3 == "undefined") {
+                    $3 = undefined
+                }
+                res1.push($1 + " " + $2 + ($3 ? " //" + $3 : ""));
                 return $0;
             });
+            var res = val.match(/\`[\w_]+\`\s+[\w_\(\)]+(\s+|\,)/g);
             if (!res) {
                 this.structContent = 'invalid sql'
                 return
+            }
+            if (res1 && res1[0].indexOf("//") != -1) {
+                // 补全第一列注释
+                res1.splice(1, 0, res[1] + "//" + res1[0].split("//")[1])
             }
             var types = this.typeMap
             var structResult = 'type '
@@ -86,7 +96,7 @@ new Vue({
                             var fieldName = titleCase(field[1])
                             var fieldType = types[field[2]]
                             var fieldJsonName = field[1].toLowerCase()
-                            var attr = res[i].split(" ")
+                            var attr = res1[i].split(" ")
                             if (fieldName.toLowerCase() == 'id') {
                                 fieldName = 'ID'
                             }
@@ -103,8 +113,8 @@ new Vue({
                             }
                             if (structArr.length > 0) {
                                 structResult += '`' + structArr.join(' ') + '`'
-                                if (attr.length==3)
-                                    structResult += " " + attr[2]
+                                if (attr.length == 3 && attr[2] != undefined)
+                                    structResult += " " + attr[2].replace(new RegExp(/(>)/g), " ")
                             }
                         } else {
                             continue
@@ -176,7 +186,6 @@ new Vue({
                 data: JSON.stringify(data)
             }
             chrome.runtime.sendMessage(message, function (res) {
-                //console.log(res)
             })
         }
     }
