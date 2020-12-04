@@ -27,7 +27,7 @@ Chrome浏览器地址栏输入`chrome://extensions/`进入扩展程序管理中�
 3. 在mysql中获取生成数据表的sql语句
 
 ```sql
-show create table system_user\G;
+show create table system_user;
 ```
 
 4. 进入插件主页面，把上一步得到的sql语句粘贴至左侧的输入框
