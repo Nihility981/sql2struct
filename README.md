@@ -22,7 +22,7 @@ git clone https://github.com/idoubi/sql2struct.git
 Chrome浏览器地址栏输入`chrome://extensions/`进入扩展程序管理中心，
 点击“加载已解压的扩展程序”，通过源码进行安装。
 
-![安装扩展](https://i.loli.net/2020/12/04/BrTWnAj4i9mYCXa.png)
+[![安装扩展](https://s3.ax1x.com/2020/12/04/DHBfP0.png)](https://imgchr.com/i/DHBfP0)
 
 3. 在mysql中获取生成数据表的sql语句
 
@@ -34,7 +34,7 @@ show create table system_user\G;
 
 5. 复制右侧生成的struct，粘贴至golang代码中即可
 
-![效果截图](https://i.loli.net/2020/12/04/6rkPKzfbWG3RaNj.png)
+[![效果截图](https://s3.ax1x.com/2020/12/04/DHD9qH.png)](https://imgchr.com/i/DHD9qH)
 
 ## 配置说明
 
