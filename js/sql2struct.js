@@ -97,6 +97,9 @@ new Vue({
                                 structArr.push('json:"' + fieldJsonName + '"')
                             }
                             if (this.useGorm) {
+                                if (fieldName.toLowerCase() == 'id') {
+                                    fieldJsonName = field[1]
+                                }
                                 structArr.push('gorm:"column:' + fieldJsonName + '"')
                             }
                             if (this.useForm) {
